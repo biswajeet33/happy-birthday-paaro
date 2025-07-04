@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I Miss You</title>
+  <style>
+    /* Reset and layout */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Background video */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Content container */
+    .content {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+      text-shadow: 0 0 10px #ff69b4;
+    }
+
+    /* Text styles */
+    .text {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .counter {
+      font-size: 2.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Final message hidden initially */
+    .final-message {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .final-message h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: #ff9bcf;
+      text-shadow: 0 0 15px #ff69b4;
+    }
+
+    .final-message video {
+      width: 120px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #ff69b4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Local background video -->
+  <video autoplay muted loop id="bg-video" playsinline>
+    <source src="background.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="text" id="message">I miss you...</div>
+
+    <!-- Counting section -->
+    <div class="counter" id="counterSection">
+      <span id="count">0</span>
+      <span>times every moment</span>
+    </div>
+
+    <!-- Final message (hidden initially) -->
+    <div class="final-message" id="finalMessage">
+      <h1>I miss you infinite times or more</h1>
+      <video
+        src="kiss-heart.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+      ></video>
+    </div>
+  </div>
+
+  <script>
+    let count = 0;
+    const counter = document.getElementById('count');
+    const counterSection = document.getElementById('counterSection');
+    const message = document.getElementById('message');
+    const finalMessage = document.getElementById('finalMessage');
+
+    const interval = setInterval(() => {
+      count++;
+      counter.textContent = count;
+
+      if (count >= 100) {
+        clearInterval(interval);
+        message.style.display = 'none';
+        counterSection.style.display = 'none';
+        finalMessage.style.display = 'flex';
+      }
+    }, 50);
+  </script>
+<script>
+    setTimeout(() => {
+      window.location.href = "next.html";
+    }, 10000);
+  </script>
+
+</body>
+</html>

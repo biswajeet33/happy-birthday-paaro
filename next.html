@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: 'Dancing Script', cursive;
+    
+    }
+
+    /* Background video */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .container {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      color: #ffc0cb;
+      text-shadow: 0 0 15px #ff69b4;
+    }
+
+    .message {
+      font-size: 2.2rem;
+      max-width: 90vw;
+      line-height: 1.6;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+
+    .emotion-img {
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+      margin: 0 6px;
+    }
+
+    .final-video {
+      width: 120px;
+      height: auto;
+      margin-top: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #ff69b4;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .final-video.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎥 Local background video -->
+  <video autoplay muted loop id="bg-video" playsinline>
+    <source src="background - Copy.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <!-- 🌸 Intro message -->
+    <div class="message visible" id="firstMessage">
+      Wait a second… it’s your birthday and I'm crying… nope!
+    </div>
+
+    <!-- 💖 Final romantic message -->
+    <div class="message" id="finalMessage">
+      Happy Birthday, my love!  
+      <img src="download.jpeg" class="emotion-img" alt="Heart" />. 
+      You are the light of my life 
+      <img src="download (1).jpeg" class="emotion-img" alt="Heart" />. 
+      Every moment with you feels like magic 
+      <img src="Bubu Dubu Cuddling Sticker.jpeg" class="emotion-img" alt="Smiley" />.  
+      From our laughs to our quiet moments, you make everything better 
+      <img src="Cute Dudu Is Giving Balloon To Bubu Sticker.jpeg" class="emotion-img" alt="Balloons" />.  
+      Your smile, your hugs, your love – they're all I ever want 
+      <img src="https://i.imgur.com/7M0tPrn.png" class="emotion-img" alt="Sparkles" />.  
+      You are my joy, my peace, my home 
+      <img src="https://i.imgur.com/BIhChRZ.png" class="emotion-img" alt="Rose" />.  
+      On this day, I just want you to know how deeply loved you are 
+      <img src="https://i.imgur.com/Bg46ZYo.png" class="emotion-img" alt="Candle" />.  
+      I wish you happiness, dreams fulfilled, and endless cuddles 
+      <img src="https://i.imgur.com/V3oSbpK.png" class="emotion-img" alt="Gift" />.  
+      You're my forever, and I will love you always – no matter what 
+      <img src="https://i.imgur.com/kZ5VU9r.png" class="emotion-img" alt="Infinity" />.
+    </div>
+
+    <!-- 💞 Final local video (kiss.mp4) -->
+    <video
+      id="finalVideo"
+      src="kiss.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      class="final-video"
+    ></video>
+  </div>
+
+  <!-- 💻 JS: handle message switch -->
+  <script>
+    const firstMessage = document.getElementById("firstMessage");
+    const finalMessage = document.getElementById("finalMessage");
+    const finalVideo = document.getElementById("finalVideo");
+
+    setTimeout(() => {
+      firstMessage.classList.remove("visible");
+      finalMessage.classList.add("visible");
+      finalVideo.classList.add("visible");
+    }, 4000); // 4 seconds after intro message
+  </script>
+
+</body>
+</html>
